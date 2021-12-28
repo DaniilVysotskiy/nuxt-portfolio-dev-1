@@ -11,20 +11,20 @@ export default {
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: process.env.DEV_DESCRIPTION},
+      { hid: 'description', name: 'description', content: process.env.DEV_DESCRIPTION },
       { name: 'format-detection', content: 'telephone=no' },
       /* Twitter */
-      {hid: "twitter:card", name: "twitter:card", content: "summary"},
-      {hid: "twitter:site", name: "twitter:site", content: process.env.DEV_NAME},
-      {hid: "twitter:creator", name: "twitter:creator", content: process.env.DEV_NAME},
-      {hid: "twitter:title", name: "twitter:title", content: process.env.DEV_NAME},
-      {hid: "twitter:description", name: "twitter:description", content: process.env.DEV_DESCRIPTION},
-      {hid: "twitter:image", name: "twitter:image", content: '/favicon.ico'},
+      { hid: "twitter:card", name: "twitter:card", content: "summary" },
+      { hid: "twitter:site", name: "twitter:site", content: process.env.DEV_NAME },
+      { hid: "twitter:creator", name: "twitter:creator", content: process.env.DEV_NAME },
+      { hid: "twitter:title", name: "twitter:title", content: process.env.DEV_NAME },
+      { hid: "twitter:description", name: "twitter:description", content: process.env.DEV_DESCRIPTION },
+      { hid: "twitter:image", name: "twitter:image", content: '/favicon.ico' },
       /* Open-Graph */
-      {hid: "og:type", name: "og:type", content: "website"},
-      {hid: "og:site_name", name: "og:site_name", content: process.env.DEV_NAME},
-      {hid: "og:description", name: "og:description", content: process.env.DEV_DESCRIPTION},
-      {hid: "og:image", name: "og:image", content: '/favicon.ico'},
+      { hid: "og:type", name: "og:type", content: "website" },
+      { hid: "og:site_name", name: "og:site_name", content: process.env.DEV_NAME },
+      { hid: "og:description", name: "og:description", content: process.env.DEV_DESCRIPTION },
+      { hid: "og:image", name: "og:image", content: '/favicon.ico' },
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
@@ -68,7 +68,6 @@ export default {
     routes: async () => {
       const notion = require('vue-notion')
       const pageTable = await notion.getPageTable(process.env.NOTION_TABLE_ID)
-      // console.log(pageTable)
       return pageTable.filter((item) => !!item.public).map((item) => `/posts/${item.slug}`)
     }
   },
